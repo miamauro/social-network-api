@@ -11,13 +11,12 @@ const thoughtSchema = new Schema(
     },
     createdAt: {
       type: Date,
-      //Default to current timestamp
+      default: Date.now,
       //Use a getter method to format the timestamp on query
     },
     username: {
-      //The user that created this thought
-      //type: String,
-      //required: true
+      type: String,
+      required: true,
     },
     reactions: [reactionSchema],
   },
