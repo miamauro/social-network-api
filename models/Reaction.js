@@ -11,12 +11,13 @@ const reactionSchema = new Schema({
     maxLength: 280,
   },
   username: {
-    // type: String,
+    //type: String,
     //required: true,
   },
   createdAt: {
     type: Date,
-    // Set default value to current timestamp
+    default: Date.now,
+    //Set default value to current timestamp
     //Use a getter method to format the timestamp on query
   },
 });
