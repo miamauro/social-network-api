@@ -17,7 +17,7 @@ module.exports = {
       )
       .catch((error) => res.status(500).json(error));
   },
-  postNewUser(req, res) {
+  createUser(req, res) {
     User.create(req.body)
       .then((user) => res.json(user))
       .catch((error) => res.status(500).json(error));
@@ -48,4 +48,5 @@ module.exports = {
 
       .catch((error) => res.status(500).json(error));
   },
+  // createFriend()
 };
