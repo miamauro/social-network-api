@@ -28,4 +28,13 @@ module.exports = {
       .then((thought) => res.json(thought))
       .catch((error) => res.status(500).json(error));
   },
+  updateThought(req, res) {
+    Thought.findOneAndUpdate({ _id: req.params.thoughtId }, { $set: req.body })
+      .then((thought) =>
+        !thought
+          ? res.status(404).json({ message: "No thought with this ID." })
+          : res.json(thought)
+      )
+      .catch((error) => res.status(500).json(error));
+  },
 };
