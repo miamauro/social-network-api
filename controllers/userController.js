@@ -31,7 +31,7 @@ module.exports = {
       .then((user) =>
         !user
           ? res.status(404).json({ message: "No user with this ID." })
-          : res.json({ message: "User updated." })
+          : res.json({ message: "User has been updated." })
       )
       .catch((error) => res.status(500).json(error));
   },
@@ -40,8 +40,12 @@ module.exports = {
       .then((user) =>
         !user
           ? res.status(404).json({ message: "No user with this ID." })
-          : res.json({ message: "User deleted." })
+          : Thought.deleteMany({ _id: { $in: user.thoughts } })
       )
+      .then(() =>
+        res.json({ message: "User and associated thoughts have been deleted." })
+      )
+
       .catch((error) => res.status(500).json(error));
   },
 };
