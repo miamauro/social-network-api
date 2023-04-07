@@ -3,6 +3,6 @@ const apiRoutes = require("./api");
 
 router.use("/api", apiRoutes);
 
-// router.use((req, res) => res.send("Dead end!"));
+router.use((req, res) => res.send("Dead end!"));
 
 module.exports = router;
