@@ -1,5 +1,6 @@
 const { Schema, Types } = require("mongoose");
 
+// Not a model - this is used as the reaction field's subdocument schema within the Thought model.
 const reactionSchema = new Schema({
   reactionId: {
     type: Schema.Types.ObjectId,
@@ -17,7 +18,7 @@ const reactionSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now,
-    //Use a getter method to format the timestamp on query
+    // Use a getter method to format the timestamp on query.
   },
 });
 
